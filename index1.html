@@ -23,7 +23,27 @@
       overflow: hidden;
     }
 
-  
+  /* Wave Backgrounds */
+    .wave {
+      position: absolute;
+      left: 0;
+      width: 200%;
+      height: 200px;
+      background: #a3d9ff;
+      border-radius: 43% 57% 60% 40% / 55% 44% 56% 45%;
+      animation: waveAnim 8s linear infinite;
+      z-index: -1;
+    }
+
+    .wave.top {
+      top: -100px;
+    }
+
+    .wave.bottom {
+      bottom: -100px;
+      transform: rotate(180deg);
+      animation-delay: -4s;
+    }
     
     /* Background waves */
   
@@ -222,7 +242,7 @@
 </head>
 <body>
 
-<div class="bg-top"></div>
+<div class="wave top"></div>
 <div class="bg-bottom"></div>
   
 
