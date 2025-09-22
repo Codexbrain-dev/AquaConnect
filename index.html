@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #ffffff;
+      position: relative;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    /* Background waves */
+    .bg-top,
+    .bg-bottom {
+      position: absolute;
+      width: 160%;
+      height: 60%;
+      left: -30%;
+      background: #b3e0ff;
+      border-radius: 50%;
+      z-index: -1;
+      animation: floatWave 12s ease-in-out infinite alternate;
+    }
+
+    .bg-top {
+      top: -20%;
+    }
+
+    .bg-bottom {
+      bottom: -25%;
+      animation-delay: 6s; /* offset for opposite motion */
+    }
+
+    @keyframes floatWave {
+      0% {
+        transform: translateX(0) translateY(0) scale(1);
+      }
+      50% {
+        transform: translateX(-20px) translateY(15px) scale(1.05);
+      }
+      100% {
+        transform: translateX(20px) translateY(-15px) scale(1);
+      }
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .container h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0a1f44;
+      margin-bottom: 20px;
+    }
+
+    .input-box {
+      position: relative;
+      margin-bottom: 15px;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 14px;
+      padding-right: 40px;
+      border: 1.5px solid #1e88e5;
+      border-radius: 10px;
+      font-size: 15px;
+      color: #333;
+      outline: none;
+    }
+
+    .input-box input::placeholder {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 18px;
+      color: #666;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 14px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #0066d1;
+    }
+
+    .login-link {
+      margin-top: 12px;
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .login-link a {
+      color: #007bff;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* Divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 25px 0 20px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .divider:not(:empty)::before {
+      margin-right: 10px;
+    }
+
+    .divider:not(:empty)::after {
+      margin-left: 10px;
+    }
+
+    /* Social login */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-icons img {
+      width: 38px;
+      height: 38px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Responsive Tweaks */
+    @media (min-width: 480px) {
+      .container h2 {
+        font-size: 24px;
+      }
+      .input-box input {
+        font-size: 16px;
+      }
+      .btn {
+        font-size: 17px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      body {
+        padding: 40px;
+      }
+      .container {
+        max-width: 500px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .container {
+        max-width: 600px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-top"></div>
+  <div class="bg-bottom"></div>
+
+  <div class="container">
+    <h2>SIGN UP</h2>
+
+    <div class="input-box">
+      <input type="text" placeholder="Full Name">
+    </div>
+    <div class="input-box">
+      <input type="text" placeholder="Email Or Phone No">
+    </div>
+    <div class="input-box">
+      <input type="text" placeholder="Set Location">
+    </div>
+    <div class="input-box">
+      <input type="password" id="password" placeholder="Password">
+      <span class="toggle-password" onclick="togglePassword()">👁️</span>
+    </div>
+
+    <button class="btn">Create Account</button>
+
+    <div class="login-link">
+      Already Have An Account? <a href="#">Log In</a>
+    </div>
+
+    <div class="divider">Or Continue With</div>
+
+    <div class="social-icons">
+      <img src="https://img.icons8.com/ios-filled/50/000000/mac-os.png" alt="Apple">
+      <img src="https://img.icons8.com/ios-filled/50/1877f2/facebook.png" alt="Facebook">
+      <img src="https://img.icons8.com/ios-filled/50/1da1f2/twitter.png" alt="Twitter">
+      <img src="https://img.icons8.com/ios-filled/50/ea4335/google-logo.png" alt="Google">
+    </div>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const input = document.getElementById("password");
+      input.type = input.type === "password" ? "text" : "password";
+    }
+  </script>
+</body>
+</html>
